@@ -26,3 +26,11 @@ function makeRow(nCols) {
 
 
 populateGrid(ROWS, COLS);
+
+
+let grid = document.querySelector("div#grid-container");
+grid.addEventListener("mouseover", (e) => {
+    if (e.target.classList.contains("grid-square")) {
+        e.target.classList.add("drawn");
+    }
+});
