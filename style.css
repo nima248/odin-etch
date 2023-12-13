@@ -3,12 +3,18 @@ body {
     padding: 0;
 }
 
+#main {
+    display: inline;
+}
+
 #grid-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100vh;
+    height: 85vh;
+    width: 85vh;
     border: 2px solid red;
+    margin: 15px;
+    margin-top: 0px;
 }
 
 .grid-row {
@@ -23,4 +29,8 @@ body {
 
 .drawn {
     background-color: grey;
+}
+
+#btn {
+    margin: 15px;
 }

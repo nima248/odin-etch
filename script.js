@@ -1,5 +1,8 @@
-const ROWS = 16;
-const COLS = 16;
+const DEFAULT_ROWS = 16;
+const DEFAULT_COLS = 16;
+
+let nRows = DEFAULT_ROWS;
+let nCols = DEFAULT_COLS;
 
 
 function populateGrid(nRows, nCols) {
@@ -25,7 +28,7 @@ function makeRow(nCols) {
 }
 
 
-populateGrid(ROWS, COLS);
+populateGrid(nRows, nCols);
 
 
 let grid = document.querySelector("div#grid-container");
@@ -33,4 +36,22 @@ grid.addEventListener("mouseover", (e) => {
     if (e.target.classList.contains("grid-square")) {
         e.target.classList.add("drawn");
     }
+});
+
+let btn = document.querySelector("#btn");
+btn.addEventListener("click", () => {
+    let n = prompt("How many squares per side? (Max 100)");
+    if (n === "") return;
+    if (isNaN(n)) return;
+    n = Math.round(n);
+    if (n < 1) {
+        alert("Must be positive");
+        return;
+    }
+    if (n > 100) {
+        alert("Can't be greater than 100");
+        return;
+    }
+    nRows = nCols = n;
+    populateGrid(nRows, nCols);
 });
